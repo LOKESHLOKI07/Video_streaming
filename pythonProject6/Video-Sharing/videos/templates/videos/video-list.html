@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS styles here */
+        .video-item {
+            margin-bottom: 20px;
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
+        }
+        .video-title {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .video-description {
+            margin-top: 5px;
+        }
+        .video-options {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .video-options a {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Video List</h1>
+        <form action="{% url 'video-search' %}" method="get" class="mb-4">
+            <div class="form-group">
+                <label for="search">Search:</label>
+                <input type="text" id="search" name="query" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div class="row">
+            <!-- Loop through all stored videos and display their information -->
+            {% for video in videos %}
+                <div class="col-md-4">
+                    <div class="card video-item">
+                        <!-- Wrap thumbnail with anchor tag to link to video file -->
+                        <a href="{{ video.video_file.url }}" target="_blank">
+                            <img src="{{ video.thumbnail.url }}" alt="Thumbnail" class="card-img-top video-thumbnail">
+                        </a>
+                        <div class="card-body">
+                            <!-- Display video title -->
+                            <h2 class="card-title video-title">{{ video.title }}</h2>
+                            <!-- Display video description -->
+                            <p class="card-text video-description">{{ video.description }}</p>
+                            <!-- Options -->
+                            <div class="video-options">
+                                <a href="{% url 'video-detail' video.pk %}" class="btn btn-primary">View Details</a>
+                                <a href="{% url 'video-update' video.pk %}" class="btn btn-secondary">Edit</a>
+                                <a href="{% url 'video-delete' video.pk %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

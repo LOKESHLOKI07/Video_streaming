@@ -1,0 +1,31 @@
+<!-- register.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <label for="username">Username:</label><br>
+        {{ form.username }}
+        {{ form.username.errors }}<br><br>
+      <label for="email">Email:</label><br>
+{{ form.email }}
+{{ form.email.errors }}<br><br>
+
+        <label for="password1">Password:</label><br>
+        {{ form.password1 }}
+        {{ form.password1.errors }}<br><br>
+        <label for="password2">Confirm Password:</label><br>
+        {{ form.password2 }}
+        {{ form.password2.errors }}<br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

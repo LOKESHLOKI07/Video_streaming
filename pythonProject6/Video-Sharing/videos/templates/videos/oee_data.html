@@ -1,0 +1,28 @@
+<!-- videos/templates/oee_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OEE Data</title>
+</head>
+<body>
+    <h1>OEE Data</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Machine Name</th>
+                <th>OEE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for machine in oee_data %}
+            <tr>
+                <td>{{ machine.machine_name }}</td>
+                <td>{{ machine.oee }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

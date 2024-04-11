@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Sharing Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for center aligning h1 */
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Center aligned h1 -->
+    <h1>Video Sharing Platform</h1>
+
+    <!-- Bootstrap-styled h2 -->
+    <div class="container">
+               <!-- Register -->
+        <h2 >Register</h2>
+        <ul>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+
+        <!-- Login -->
+        <h2 >Login</h2>
+        <ul>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+
+           <!-- Video Create -->
+        <h2>Create Video</h2>
+        <ul>
+            <li><a href="{% url 'video-create' %}">Create New Video</a></li>
+        </ul>
+        <!-- Video List -->
+        <h2 >All Videos</h2>
+        <ul>
+            <li><a href="{% url 'video_only' %}">View All Videos</a></li>
+        </ul>
+
+
+
+
+
+
+
+
+
+        <!-- Video Stream -->
+        <h2 >Video Stream</h2>
+        <ul>
+            <li><a href="{% url 'video-stream' %}">Stream Video</a></li>
+        </ul>
+    </div>
+</body>
+</html>
